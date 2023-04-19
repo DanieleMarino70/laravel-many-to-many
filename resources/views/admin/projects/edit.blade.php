@@ -33,7 +33,7 @@
                 <select id="type" name="type" class="form-select">
                     <option value="">Nessun Tipo</option>
                     @foreach ($types as $type)
-                    <option value="{{$type->id}}">{{$type->label}}</option>
+                    <option value="{{$type->id}}" @if ($project->type?->id == $type->id ) selected @endif>{{$type->label}}</option>
                     @endforeach
                 </select>
             </div>
