@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use App\Models\Project;
+use App\Models\Type;
 
 class ProjectSeeder extends Seeder
 {
@@ -16,8 +17,10 @@ class ProjectSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
+        $types = Type::all()->pluck('id');
         for ($i = 0; $i < 10; $i++) {
             $project = new Project;
+            $project->type_id = $faker->randomElement($types);
             $project->title = $faker->word();
             $project->description = $faker->paragraph();
             $project->author = $faker->name();
