@@ -25,7 +25,7 @@
                             <th scope="row">{{ $project->id}}</th>
                             <td>{{ $project->type?->label}}</td>
                             <td>{{ $project->title}}</td>
-                            <td>{{ $project->description}}</td>
+                            <td>{{ $project->getAbstract()}}</td>
                             <td>{{ $project->author}}</td>
                             <td>
                                 <div class="d-flex flex-column">
