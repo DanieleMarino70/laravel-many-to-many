@@ -13,6 +13,7 @@
                         <tr>
                         <th scope="col">ID</th>
                         <th scope="col">TIPO</th>
+                        <th scope="col">TECNOLOGIA</th>
                         <th scope="col">TITOLO</th>
                         <th scope="col">DESCRIZIONE</th>
                         <th scope="col">AUTORE</th>
@@ -24,6 +25,7 @@
                         <tr>
                             <th scope="row">{{ $project->id}}</th>
                             <td>{{ $project->type?->label}}</td>
+                            <td>@forelse($project->technologies as $technology) {{ $technology->label}} @unless ($loop->last), @endunless @empty - @endforelse</td>
                             <td>{{ $project->title}}</td>
                             <td>{{ $project->getAbstract()}}</td>
                             <td>{{ $project->author}}</td>
